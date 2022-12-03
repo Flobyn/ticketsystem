@@ -1,0 +1,127 @@
+body{
+    background-image:linear-gradient(to right,#45c0ce, #7464ac)  ;
+}
+.login{
+    height: 520px;
+    width: 400px;
+    background-color: rgba(255,255,255,0.13);
+    position: absolute;
+    transform: translate(-50%,-50%);
+    top: 50%;
+    left: 50%;
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(255,255,255,0.1);
+    box-shadow: 0 0 40px rgba(8,7,16,0.6);
+    padding: 50px 35px;
+}
+.login *{
+    font-family: 'Poppins',sans-serif;
+    color: #ffffff;
+    letter-spacing: 0.5px;
+    outline: none;
+    border: none;
+}
+.login h3{
+    font-size: 32px;
+    font-weight: 500;
+    line-height: 42px;
+    text-align: center;
+}
+
+label{
+    display: block;
+    margin-top: 30px;
+    font-size: 16px;
+    font-weight: 500;
+}
+input{
+    display: block;
+    height: 50px;
+    padding: 0 10px;
+
+}
+::placeholder{
+    color: #ffffff;
+}
+
+#button{
+    margin-top: 50px;
+    width: 100%;
+    background-color: #ffffff;
+    color: #080710;
+    font-size: 18px;
+    font-weight: 600;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    padding: 10px;
+}
+.title-white{
+    padding-top: 10px;
+    color:#ffffff;
+}
+/* control page */
+#button2{
+    width: 50%;
+    background-color: #ffffff;
+    color: #080710;
+    font-size: 20px;
+    font-weight: 600;
+    border-radius: 5px;
+    margin: 50px auto;
+    cursor: pointer;
+}
+.startbutton{
+    display:block ;
+    height: 50px;
+    padding: 10px 10px;
+    width: 50%;
+    background-color: #ffffff;
+    color: #080710;
+    font-size: 20px;
+    font-weight: 600;
+    border-radius: 5px;
+    margin: 50px auto;
+    cursor: pointer;
+    text-decoration: none;
+    text-align: center;
+}
+.startbutton:hover{
+    /* text-decoration: none;
+    text-transform: none; */
+    color: #080710;
+}
+.side{
+    height: 520px;
+    width: 90%;
+    background-color: rgba(255,255,255,0.13);
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(255,255,255,0.1);
+    box-shadow: 0 0 40px rgba(8,7,16,0.6);
+    padding: 50px 35px;
+    overflow: scroll;
+    margin: auto;
+}
+
+.underline{
+    border-bottom: 1px solid #ffffff;
+}
+.textcolor{
+    color: #ffffff;
+}
+
+div.small_screen{
+    visibility: hidden;
+}
+
+/* scherm kleiner */
+@media screen and (max-width: 909px) {
+    div.space {
+      display: none;
+    }
+    div.small_screen{
+        visibility: visible;
+    }
+  }
