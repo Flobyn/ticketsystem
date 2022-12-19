@@ -21,7 +21,7 @@ if ( isset( $_GET["user"] ) ) {
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-2 align-self-start">
-            <img src="https://chart.googleapis.com/chart?cht=qr&chl=http%3A%2F%2Ftickets.rf.gd%2Fgetticket.php?user=<?php echo $user; ?>&chs=180x180&choe=UTF-8&chld=L|2">
+            <img src="https://chart.googleapis.com/chart?cht=qr&chl=http%3A%2F%2Ftickets.rf.gd%2Fgetticket.php?user=<?php echo $user; ?>&chs=300x300&choe=UTF-8&chld=L|2">
         </div>
         <?php
         $filename = "tickets$user.json";
@@ -34,6 +34,7 @@ if ( isset( $_GET["user"] ) ) {
                 <span><?php echo $content[0]["Number"]; ?></span>
             </div>
             <div class="waiting">
+                <div class="waitingnumbers">Je zou maar moeten wachten 🫤</div>
                 <?php
                 for($i=1; $i < $lenght; $i++){
                 ?>
@@ -43,9 +44,16 @@ if ( isset( $_GET["user"] ) ) {
             </div>
         </div>
     </div>
+    <div class="row  position-absolute bottom-0 start-0">
+            <div class="col-md-2">
+                <img src="./image/aventus_logo.png" alt="Aventus logo" class="logo">
+    	    </div>
+            <div class="col-md-10"></div>
+        </div>
 </div>
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-<script>
+<script>    
     var previous = null;
     var current = null;
     setInterval(function() {
@@ -59,6 +67,7 @@ if ( isset( $_GET["user"] ) ) {
         });                       
     }, 2000);   
 </script>
+
 
 <!-- JavaScript Bundle with Popper -->
 <script src="./js/bootstrap.bundle.min.js" ></script>

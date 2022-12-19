@@ -1,29 +1,30 @@
 <?php
 session_start();
+include('numbergenerate.php');
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     
 	function get_data() {
-		$name = $_POST['name'];
         $user = $_POST['user'];
+        $type = $_POST['reason'];
 
 		$file_name='../tickets'. $user .'.json';
  
 		if(file_exists("$file_name")) {
+            $number = generateRandomString($type, $file_name);
+            // echo $var;
+
 			$current_data=file_get_contents("$file_name");
 			$array_data=json_decode($current_data, true);
-			// check lengte
-			$lenght = count($array_data);
-			$last = $lenght -1;
-			$newnumber = $array_data[$last]["Number"] +1;	// wordt het ticket nummer
-            
-            $_SESSION['number'] = $newnumber;
+
+            $_SESSION['number'] = $number;
 			$_SESSION['user'] = $user;
 
 			$extra=array(
 				'Name' => $_POST['name'],
 				'Reason' => $_POST['reason'],
-				'Number' => $newnumber,
+				'Number' => $number,
+                'Question' => $_POST['question'],
 			);
 			$array_data[]=$extra;
 			return json_encode($array_data);
@@ -33,7 +34,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 			$datae[]=array(
 				'Name' => $_POST['name'],
 				'Reason' => $_POST['reason'],
-				'Number' => $newnumber +1,
+				'Number' => $number,
+                'Question' => $_POST['question'],
 			);
 			return json_encode($datae);
 		}
@@ -43,11 +45,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 	if(file_put_contents("$file_name", get_data())) {
         header("location: ../number.php");
+        // echo "<br>ja even testen he";
     }
 
 	else {
 		echo 'There is some error';
 	}
+    
 }
 
 ?>
