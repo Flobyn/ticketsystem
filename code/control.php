@@ -1,6 +1,6 @@
 <?php 
 include 'db/db.php';
-include 'test.php';
+include 'db/order.php';
 session_start();
 
 if ( isset( $_SESSION['user'] ) ) {
@@ -62,7 +62,7 @@ if ( isset( $_SESSION['user'] ) ) {
 
 			<form method="post">
 				<input type="submit" id="button2" name="button1" value="Next"/>
-				<input type="submit" id="button2" name="button2" value="Reset"/>
+				<input type="submit" id="button2" name="button2" value="Reset" onclick="return confirmDelete(this.href);"/>
                 <a href="http://tickets.rf.gd?user=<?php echo $user; ?>" target="_blank" class="startbutton">Start</a>
 			</form>
 
@@ -83,7 +83,7 @@ if ( isset( $_SESSION['user'] ) ) {
 		<side class="col-md-9" id="refresh-me">
 			<div class="side">
 				<div class="row underline" > 
-					<h3 class="col-1">Num</h3>
+					<h3 class="col-1">Id</h3>
 					<h3 class="col-3">Naam</h3>
 					<h3 class="col-4">Type</h3>
 					<h3 class="col-4">Vraag</h3>
@@ -93,7 +93,12 @@ if ( isset( $_SESSION['user'] ) ) {
 				?>
 				<div class="row" id="question_info" > 
 					<h4 class="col-1"><?php echo $content[$i]["Number"]; ?></h4>
-					<h4 class="col-3"><?php echo $content[$i]["Name"]; ?><form method="post"><input type="submit" id="button2" name="prio" value="<?php echo $i; ?>"/></form> </h4>
+					<h4 class="col-3"><form method="post"><?php echo $content[$i]["Name"]; ?>
+						
+							<input type="hidden" name="prio" value="<?php echo $i; ?>"/>
+							<button class="btn btn-outline-primary btn-sm" type="submit" name="submit" value="submit" style="visibility:<?php if($i == 1){echo "hidden";}else{echo "visible";} ?>;" >Prio</button>
+						</form> 
+					</h4>
 					<h4 class="col-4"><?php echo $content[$i]["Reason"] ; ?></h4>
 					<h4 class="col-4 truncate" data-bs-target="#questionModal" data-bs-toggle="modal" data-bs-naam="<?php echo $content[$i]["Name"]; ?>" data-bs-question="<?php echo $content[$i]["Question"] ; ?>"><?php echo $content[$i]["Question"] ; ?></h4>
 				</div>
@@ -161,6 +166,11 @@ if ( isset( $_SESSION['user'] ) ) {
 		Het scherm links onder de knoppen zie je wie er op het moment aan de beurt is en hun nummer, naam, type vraag en de eventuele vraag die ze hebben ingevuld.
 		</p>
 		<hr>
+		<h5>Prioriteren:</h5>
+		<p>
+		De knop prio zorgt ervoor dat de gekozen persoon als eerst volgende aan de beurt zal zijn.
+		</p>
+		<hr>
 		<h5>Extra:</h5>
 		<p>Als je op de vraag van een leerling klikt krijg je de gehele vraag in beeld en de naam van wie de vraag is<br>
 			Als je van de pagina geluid toelaat dan speelt er een geluidje af als er op next wordt gedrukt.</p>
@@ -189,6 +199,13 @@ if ( isset( $_SESSION['user'] ) ) {
         });                       
     }, 2000); 
 	
+	function confirmDelete(loc) { 
+		if (confirm('Confirm you wish to delete this?')) { 
+			return true;
+		} 
+		return false; // cancel the click event always 
+	}
+
 	var exampleModal = document.getElementById('questionModal')
 	exampleModal.addEventListener('show.bs.modal', function (event) {
 	// Button that triggered the modal
@@ -207,40 +224,6 @@ if ( isset( $_SESSION['user'] ) ) {
 	modalBodyInput.textContent = question
 	})
 
-	function move_Up(id){
-		
-
-		$.getJSON("<?php echo $filename; ?>", function(json) {
-            // var current = [{"Name":"sdkln","Reason":"Algemene","Number":"A92","Question":"nklknl"},{"Name":"sdkln","Reason":"Algemene","Number":"A67","Question":"nklknl"},{"Name":"sdkln","Reason":"Algemene","Number":"A53","Question":"nklknl"},{"Name":"sdkln","Reason":"Algemene","Number":"A31","Question":"nklknl"}];
-			current = JSON.stringify(json);   
-			const obj = JSON.parse(current);
-
-			console.log(obj);
-
-			// x is the position now
-			var x = id;
-			// going to position 1
-			var pos = 1;
-			// Store the moved element in a temp
-		
-			var temp = obj[x];
-			// variable
-			
-			// shift elements forward
-			var i;
-			for (i = x; i >= pos; i--)
-			{
-				obj[i] = obj[i - 1];
-
-			}
-			// Insert moved element at position 
-			obj[pos] = temp;
-			<?php //$json = json_encode(?><?php//);
-			// file_put_contents($filename, $json); ?>
-			console.log(obj);
-		});
-
-	}
 </script>
 </body>
 </html>

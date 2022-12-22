@@ -1,0 +1,111 @@
+body {
+    margin: 0;
+    padding: 40px;
+    background-image:linear-gradient(to right,#7464ac, #7464ac)  ;
+  }
+
+  .qrcode{
+    position: fixed;
+  }
+
+  .nextup {
+    background: #333;
+    height: 180px;
+    position: relative;
+    width: 400px;
+    margin: 0 auto;
+  }
+  
+  .nextup:before {
+    background: #7464ac;
+    border-radius: 50%;
+    box-shadow: 
+      400px 0 0 0 #7464ac, 
+      0 180px 0 0 #7464ac, 
+      400px 180px 0 0 #7464ac,
+      0 40px 0 -20px #7464ac,
+      0 60px 0 -20px #7464ac,
+      0 80px 0 -20px #7464ac,
+      0 100px 0 -20px #7464ac,
+      0 120px 0 -20px #7464ac,
+      0 140px 0 -20px #7464ac,
+      400px 40px 0 -20px #7464ac,
+      400px 60px 0 -20px #7464ac,
+      400px 80px 0 -20px #7464ac,
+      400px 100px 0 -20px #7464ac,
+      400px 120px 0 -20px #7464ac,
+      400px 140px 0 -20px #7464ac;
+    content: "";
+    display: block;
+    height: 50px;
+    left: -25px;
+    position: absolute;
+    top: -25px;
+    width: 50px;
+  }
+  
+  span {
+    border-radius: 20px;
+    border: 3px solid #aaa;
+    color: #fff;
+    display: inline-block;
+    font-size: 90px;
+    left: 0;
+    left: 50%;
+    line-height: 1.5;
+    padding: 0 40px;
+    position: absolute;
+    text-transform: uppercase;
+    top: 50%;
+    -webkit-transform: translateY(-50%) translateX(-50%);
+    -moz-transform: translateY(-50%) translateX(-50%);
+    transform: translateY(-50%) translateX(-50%);
+  }
+  
+  span:before,
+  span:after {
+    background: #333;
+    color: #aaa;
+    display: inline-block;
+    font-size: 16px;
+    left: 50%;
+    padding: 0 10px;
+    position: absolute;
+  }
+  
+  span:before {
+    content: "Ticket";
+    -webkit-transform: translateX(-50%) translateY(-50%);
+    -moz-transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%) translateY(-50%);
+    top: 0;
+  }
+  
+  span:after {
+    content: "Succes";
+    bottom: 0;
+    -webkit-transform: translateX(-50%) translateY(50%);
+    -moz-transform: translateX(-50%) translateY(50%);
+    transform: translateX(-50%) translateY(50%);
+  }
+
+  .waiting{
+	min-width: 340px;
+    max-width: 370px;
+    height: fit-content;
+	background-color: #333;
+	margin: 20px auto;
+	font-size:30px;
+	border-radius: 4px;
+}
+  .waitingnumbers {
+	padding: 5px 15px;
+	text-align: center;
+	color: #fefefe; 
+ }
+  
+ /* logo aventus */
+
+.logo{
+    width: 100%;
+}

@@ -27,7 +27,7 @@ $input = array("https://giphy.com/embed/QBd2kLB5qDmysEXre9", "https://giphy.com/
 			<span><?php echo $ticket_number; ?></span>
 		</div><br>
         <div class="row">
-            <div class="col-6"><a href="https://offline-dino-game.firebaseapp.com/" target="_blank"><button  type="button" class="btn btn-light float-end">dinosauris game</button></a></div>
+            <div class="col-6"><a href="https://dinosaurgame.net/" target="_blank"><button  type="button" class="btn btn-light float-end">dinosauris game</button></a></div>
             <div class="col-6"><a href="http://tictacteen.epizy.com/" target="_blank"><button  type="button" class="btn btn-light float-start">Tic Tac Toe game</button></a></div>
         </div><br>
         <div style="width:100%;height:0;padding-bottom:60%;position:relative;"><iframe src="<?php echo $input[$rand_keys[0]]; ?>" width="100%" height="100%" style="position:absolute" frameBorder="0" class="giphy-embed" allowFullScreen></iframe></div>
